@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Aleksander1105/zadanie_14_8/issues"
   },
-  "homepage": "https://github.com/Aleksander1105/zadanie_14_8#readme"
+  "homepage": "https://github.com/Aleksander1105/zadanie_14_8#readme",
+  "devDependencies": {
+    "http-server": "^0.11.1"
+  }
 }
