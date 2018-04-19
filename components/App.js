@@ -45,7 +45,7 @@ handleSearch: function(searchingText) {
 },
 
 	getGif: function(searchingText, callback) {  
-    	const url = 'https://api.giphy.com' + '/v1/gifs/random?api_key=' + 'Ahz6kKvHoNTrwWXaZYfD2P3uhpLF60NE' + '&tag=' + searchingText; 
+    	const url = 'https://api.giphy.com' + '/v1/gifs/random?api_key=' + 'UF51PbByi3jHbgAqlZvhlolVu7A2d03I' + '&tag=' + searchingText; 
     	const xhr = new XMLHttpRequest();  
     	xhr.open('GET', url);
     	xhr.onload = function() {
