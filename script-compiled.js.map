@@ -1,0 +1,1 @@
+{"version":3,"sources":["script.js"],"names":[],"mappings":";;AAAA,IAAM,MAAM,MAAM,aAAN,CAAoB,GAApB,CAAZ;AACA,SAAS,MAAT,CAAgB,GAAhB,EAAqB,SAAS,cAAT,CAAwB,KAAxB,CAArB","file":"script-compiled.js","sourcesContent":["const app = React.createElement(App);\r\nReactDOM.render(app, document.getElementById('app'));"]}
