@@ -1,3 +1,5 @@
+const KEY = 'UF51PbByi3jHbgAqlZvhlolVu7A2d03I';
+
 App = React.createClass({
 
 	getInitialState() {
@@ -8,44 +10,22 @@ App = React.createClass({
 		};
 	},
 
-	render: function() {
+	handleSearch: function(searchingText) {
+		this.setState({
+			loading: true
+		});
 
-		const styles = {
-			margin: '0 auto',
-			textAlign: 'center',
-			width: '90%'
-		};
-
-		return (
-			<div style={styles}>
-					<h1>Wyszukiwarka GIFów</h1>
-					<p>Znajdź gifa na <a href='http://giphy.com'>giphy</a>. Naciskaj enter, aby pobrać kolejne gify.</p>
-					<Search onSearch={this.handleSearch} />
-				<Gif
-					loading={this.state.loading}
-					url={this.state.gif.url}
-					sourceUrl={this.state.gif.sourceUrl}
-				/>
-			</div>
-		);
+		this.getGif(searchingText, function(gif) {
+			this.setState({
+				loading: false,
+				gif: gif,
+				searchingText: searchingText
+			});
+		}.bind(this));
 	},
 
-handleSearch: function(searchingText) {
-	this.setState({
-		loading: true
-	});
-
-	this.getGif(searchingText, function(gif) {
-		this.setState({
-			loading: false,
-			gif: gif,
-			searchingText: searchingText
-		});
-	}.bind(this));
-},
-
 	getGif: function(searchingText, callback) {  
-    	const url = 'https://api.giphy.com' + '/v1/gifs/random?api_key=' + 'UF51PbByi3jHbgAqlZvhlolVu7A2d03I' + '&tag=' + searchingText; 
+    	const url = 'https://api.giphy.com' + '/v1/gifs/random?api_key=' + KEY + '&tag=' + searchingText; 
     	const xhr = new XMLHttpRequest();  
     	xhr.open('GET', url);
     	xhr.onload = function() {
@@ -60,4 +40,28 @@ handleSearch: function(searchingText) {
     	};
     	xhr.send();
 	},
+
+	render: function() {
+
+		const styles = {
+			margin: "0 auto",
+			textAlign: "center",
+			width: "90%"
+		};
+
+		return (
+			<div style={styles}>
+					<h1>Wyszukiwarka GIFów</h1>
+					<p>
+					Znajdź gifa na <a href="http://giphy.com">giphy</a>. Naciskaj enter, aby pobrać kolejne gify.
+					</p>
+					<Search onSearch={this.handleSearch} />
+				<Gif
+					loading={this.state.loading}
+					url={this.state.gif.url}
+					sourceUrl={this.state.gif.sourceUrl}
+				/>
+			</div>
+		);
+	}
 });

@@ -7,9 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "http-server",
     "build": "npm-run-all -p build:*",
-    "build:js": "npx babel script.js -w --out-file script-compiled.js -s --presets=env",
-    "build:lib": "npx babel components -w  --out-dir components-lib -s --presets=env"
-
+    "build:js": "npx babel script.js -w --out-file script-compiled.js -s",
+    "build:lib": "npx babel components -w  --out-dir components-lib -s"
   },
   "repository": {
     "type": "git",
